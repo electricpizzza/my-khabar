@@ -52,7 +52,7 @@ export default class App extends Component {
        <Header country={this.state.country.name}/>
      }
        <Router>
-        <Route path='/home'component={Home}/>
+        <Route path='/'component={Home}/>
 
 
        </Router>
