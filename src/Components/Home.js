@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Artical from './Artical';
+import axios from 'axios'
 
 export default class Home extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export default class Home extends Component {
  const apiKey = `4784b994c88c499783829439c6ace3d3`;
  let articles;
   let url = `https://newsapi.org/v2/top-headlines?${country?'country='+country:'q=all'}&apiKey=${apiKey}`;  
-  fetch(url).then(resp=>resp.json()).then(data=> {
+  axios.get(url).then(resp=>resp.json()).then(data=> {
     articles=(data.articles.map(artical=>(
       <Artical key={1} author={artical.author}
       content={artical.content} description={artical.description}
