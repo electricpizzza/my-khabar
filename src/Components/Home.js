@@ -20,7 +20,7 @@ export default class Home extends Component {
  getInfos = (country)=>{
  const apiKey = `4784b994c88c499783829439c6ace3d3`;
  let articles;
-  let url = `http://newsapi.org/v2/top-headlines?${country?'country='+country:'q=all'}&apiKey=${apiKey}`;  
+  let url = `https://newsapi.org/v2/top-headlines?${country?'country='+country:'q=all'}&apiKey=${apiKey}`;  
   axios.get(url).then(resp=>resp.data).then(data=> {
     articles=(data.articles.map(artical=>(
       <Artical key={1} author={artical.author}
@@ -61,8 +61,6 @@ componentDidMount() {
 
 
     render() {
-
-      
         return (
             <div>
                 <h1 className="text-center col-12 p-5 rounded">My khabar</h1>
