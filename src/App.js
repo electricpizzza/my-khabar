@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {Switch,BrowserRouter as Router, Route } from 'react-router-dom';
+import axios from 'axios'
 import './App.css';
-import Header from './Header'
-import Home from './Coponents/Home'
-
+import Header from './Header';
+import Home from './Components/Home';
 
 
 export default class App extends Component {
@@ -24,7 +24,7 @@ export default class App extends Component {
        const lat = pos.coords.latitude;
        const lon = pos.coords.longitude;
        const url= `https://us1.locationiq.com/v1/reverse.php?key=0244cef8afc840&lat=${lat}&lon=${lon}&format=json`;
-       fetch(url).then(resp=>resp.json()).then(position=>position.address).then(address=>{
+       axios.get(url).then(resp=>resp.json()).then(position=>position.address).then(address=>{
          this.setState({
           country:{
             name :  address.country,
